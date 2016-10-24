@@ -13,11 +13,33 @@ alias cl="clear"
 alias downl="cd ~/Downloads"
 alias dir="pwd"
 
+function setproj() {
+	if [[ -n $1 ]]; then
+		p="$1";
+	else
+		printf "\nProject name required (setproj <name>). Please select one of the following:\n\n";
+		ls ~/Projects;
+		printf "\n";
+	fi
+}
+
+function setstage() {
+	if [[ -n $1 ]]; then
+		s="$1";
+	else
+		printf "\nStage name required (setstage <name>). Please select one of the following:\n\n";
+		ls ~/Stages;
+		printf "\n";
+	fi
+}
+
 function proj() {
 	cd ~/Projects;
 
 	if [[ -n $1 ]]; then
 		cd $1;
+	elif [[ -n $p ]]; then
+		cd $p;	
 	fi
 }
 
@@ -26,6 +48,8 @@ function stage() {
 
 	if [[ -n $1 ]]; then
 		cd $1;
+	elif [[ -n $s ]]; then
+		cd $s;
 	fi
 }
 
