@@ -1,9 +1,13 @@
 export PATH=/usr/local/git/bin:/usr/local/bin:$PATH
+# Configure command line colors
+export CLICOLOR=1
+export LSCOLORS=ExFxBxDxCxegedabagacad
+
+alias ls='ls -GFh'
 
 alias vagrant_codeigniter='ruby ~/bin/vagrant_scripts/new-codeigniter-env.rb'
 alias vagrant_laravel='ruby ~/bin/vagrant_scripts/new-laravel-env.rb'
 alias composer="php /usr/local/bin/composer.phar"
-alias gs="git status"
 alias vup="vagrant up"
 alias vhalt="vargant halt"
 alias back="cd .."
@@ -12,6 +16,44 @@ alias root="cd /"
 alias cl="clear"
 alias downl="cd ~/Downloads"
 alias dir="pwd"
+
+# Github commands
+alias gb="git branch"
+alias gs="git status"
+alias ga="git add"
+alias gc="git commit"
+alias gl="git log"
+alias glo="git log --pretty=oneline"
+alias glu="git log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short"
+alias gh="git checkout"
+alias gt="git tag"
+alias grs="git reset"
+alias grv="git revert"
+alias gm="git merge"
+alias gpom="git push origin master"
+alias gpum="git pull origin master"
+alias gd="git diff"
+alias gpo="git push origin"
+alias gob="git checkout -b"
+
+# Set color variables
+BLACK="\[\e[0;30m\]"
+DARK_GRAY="\[\e[1;30m\]"
+RED="\[\e[0;31m\]"
+YELLOW="\[\e[0;33m\]"
+PURPLE="\[\e[1;34m\]"
+BLUE="\[\e[0;34m\]"
+LIGHT_BLUE="\[\e[1;34m\]"
+GREEN="\[\e[0;32m\]"
+LIGHT_GREEN="\[\e[1;32m\]"
+CYAN="\[\e[0;36m\]"
+LIGHT_CYAN="\[\e[1;36m\]"
+LIGHT_RED="\[\e[1;31m\]"
+PURPLE="\[\e[0;34m\]"
+LIGHT_PURPLE="\[\e[1;35m\]"
+BROWN="\[\e[0;33m\]"
+LIGHT_GRAY="\[\e[0;37m\]"
+WHITE="\[\e[1;37m\]"
 
 function setproj() {
 	if [[ -n $1 ]]; then
@@ -89,6 +131,12 @@ function migr() {
 	fi
 	
 	./migrate.local.sh;
+}
+
+# combine mkdir and cd
+mkcd () {
+  mkdir "$1"
+  cd "$1"
 }
 
 function bg {
