@@ -92,6 +92,9 @@ function stage() {
 		cd $1;
 	elif [[ -n $s ]]; then
 		cd $s;
+	elif [[ -n $p ]]; then
+		setstage $p;
+		cd $p;
 	fi
 }
 
