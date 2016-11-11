@@ -3,19 +3,28 @@ export PATH=/usr/local/git/bin:/usr/local/bin:$PATH
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
 
+export PATH="~/bin:~/.composer/vendor/bin:/usr/local/mysql/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
+
 alias ls='ls -GFh'
 
+alias prof='sublime ~/.bash_profile'
+alias bmssh='ssh -i "~/bmgm8687.pem" ubuntu@ec2-54-157-7-122.compute-1.amazonaws.com'
 alias vagrant_codeigniter='ruby ~/bin/vagrant_scripts/new-codeigniter-env.rb'
 alias vagrant_laravel='ruby ~/bin/vagrant_scripts/new-laravel-env.rb'
 alias composer="php /usr/local/bin/composer.phar"
 alias vup="vagrant up"
 alias vhalt="vargant halt"
+alias vsshh="vagrant ssh"
+alias vstatus="vagrant global-status"
 alias back="cd .."
 alias home="cd ~"
 alias root="cd /"
 alias cl="clear"
 alias downl="cd ~/Downloads"
 alias dir="pwd"
+alias projects="cd ~/Projects"
+alias stages="cd ~/Stages"
+alias so="sublime ."
 
 # Github commands
 alias gb="git branch"
@@ -148,6 +157,14 @@ function bg {
 	wget $1;
 
 	cd -;
+}
+
+function spit() {
+	if [[ -n $1 ]]; then
+		printf "\n";
+		cat $1;
+		printf "\n";
+	fi
 }
 
 if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
